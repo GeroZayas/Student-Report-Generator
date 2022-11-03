@@ -75,7 +75,7 @@ layout = [
             key="LISTENING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 14",
+            font="Consolas 12",
         ),
     ],
     [
@@ -84,7 +84,7 @@ layout = [
             key="READING_USE_LANGUAGE",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 14",
+            font="Consolas 12",
         ),
     ],
     [
@@ -93,7 +93,7 @@ layout = [
             key="WRITING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 14",
+            font="Consolas 12",
         ),
     ],
     [
@@ -102,7 +102,7 @@ layout = [
             key="SPEAKING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 14",
+            font="Consolas 12",
         ),
     ],
     # COMENTARIO is multiline
@@ -125,7 +125,7 @@ while True:
     if event == sg.WIN_CLOSED or event == "Exit":
         break
     if event == "Create Report":
-        print(event, values)
+        # print(event, values)
 
         # Calculate total
         values["TOTAL"] = (
