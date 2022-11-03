@@ -105,14 +105,11 @@ layout = [
             font="Consolas 14",
         ),
     ],
+    # COMENTARIO is multiline
     [
+        # sg.Multiline('Multiline\n', size=(80,20), key=MLINE_KEY)],
         sg.Text("Comentario:"),
-        sg.Input(
-            key="COMENTARIO",
-            do_not_clear=False,
-            size=(30, 30),
-            font="Consolas 14",
-        ),
+        sg.Multiline(key="COMENTARIO", font="Consolas 12", do_not_clear=False),
     ],
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
