@@ -11,6 +11,10 @@ today = datetime.datetime.today()
 
 sg.theme("BrightColors")
 
+# length of COMENTARIO
+
+length_of_comment = 460
+
 
 layout = [
     # [sg.Image(source="./futur_logo.jpg")],
@@ -106,10 +110,15 @@ layout = [
         ),
     ],
     # COMENTARIO is multiline
+    # The length of COMENTARIO shoul be more or less 460 characters, including spaces
     [
         sg.Text("Comentario:"),
-        sg.Multiline(key="COMENTARIO", font="Consolas 12", do_not_clear=False),
+        sg.Multiline(
+            key="COMENTARIO", font="Consolas 12", do_not_clear=False, size=(40, 5)
+        ),
     ],
+    # PUT the length of what is written in COMENTARIO
+    # [sg.Text(f"Length: {length_of_comment}")],
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
     [sg.Button("Create Report"), sg.Exit()],
