@@ -13,7 +13,8 @@ sg.theme("BrightColors")
 
 
 layout = [
-    [sg.Image(source="./")][
+    # [sg.Image(source="./futur_logo.jpg")],
+    [
         sg.Text("Student:"),
         sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font="Consolas 14"),
     ],
