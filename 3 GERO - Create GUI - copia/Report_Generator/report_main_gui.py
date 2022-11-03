@@ -68,16 +68,61 @@ layout = [
         sg.Text("Prueba:"),
         sg.Input(key="PRUEBA", do_not_clear=True, size=(30, 30), font="Consolas 14"),
     ],
+    # --------------- NOTAS ---------------
+    [
+        sg.Text("Listening:"),
+        sg.Input(
+            key="LISTENING",
+            do_not_clear=False,
+            size=(10, 10),
+            font="Consolas 14",
+        ),
+    ],
+    [
+        sg.Text("Reading and Use of Language:"),
+        sg.Input(
+            key="READING_USE_LANGUAGE",
+            do_not_clear=False,
+            size=(10, 10),
+            font="Consolas 14",
+        ),
+    ],
+    [
+        sg.Text("Writing:"),
+        sg.Input(
+            key="WRITING",
+            do_not_clear=False,
+            size=(10, 10),
+            font="Consolas 14",
+        ),
+    ],
+    [
+        sg.Text("Speaking:"),
+        sg.Input(
+            key="SPEAKING",
+            do_not_clear=False,
+            size=(10, 10),
+            font="Consolas 14",
+        ),
+    ],
+    [
+        sg.Text("Comentario:"),
+        sg.Input(
+            key="COMENTARIO",
+            do_not_clear=False,
+            size=(30, 30),
+            font="Consolas 14",
+        ),
+    ],
+    # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
     [sg.Button("Create Report"), sg.Exit()],
 ]
 
-# window = sg.Window("Report Generator", layout, element_justification="right")
-
-
-window = sg.Window("Report Generator", icon="/futur_logo.ico").Layout(
-    layout, element_justification="right"
+window = sg.Window(
+    "Report Generator", layout, element_justification="right", icon="./futur_logo.ico"
 )
+
 
 while True:
     event, values = window.read()
@@ -85,6 +130,14 @@ while True:
         break
     if event == "Create Report":
         print(event, values)
+
+        # Calculate total
+        values["TOTAL"] = (
+            float(values["LISTENING"])
+            + float(values["READING_USE_LANGUAGE"])
+            + float(values["WRITING"])
+            + float(values["SPEAKING"])
+        ) / 4
 
         # Render the template, save new word document & inform user
         doc.render(values)
