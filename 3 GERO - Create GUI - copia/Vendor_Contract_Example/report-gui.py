@@ -12,33 +12,38 @@ today = datetime.datetime.today()
 
 layout = [
     [sg.Text("Student:"), sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30))],
-    [sg.Text("Level:"), sg.Input(key="LEVEL", do_not_clear=False, size=(30, 30))],
-    [sg.Text("Teacher:"), sg.Input(key="TEACHER", do_not_clear=False, size=(30, 30))],
-    [sg.Text("Periodo:"), sg.Input(key="PERIOD", do_not_clear=False, size=(30, 30))],
+    [sg.Text("Level:"), sg.Input(key="LEVEL", do_not_clear=True, size=(30, 30))],
+    [sg.Text("Teacher:"), sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30))],
+    [sg.Text("Periodo:"), sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30))],
     [
         sg.Text("Asistencia:"),
-        sg.Input(key="ASISTENCIA", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="ASISTENCIA", do_not_clear=False, size=(10, 10)),
     ],
     [
         sg.Text("Asimilación de material nuevo:"),
-        sg.Input(key="ASIMILACION", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="ASIMILACION", do_not_clear=False, size=(10, 10)),
     ],
     [
         sg.Text("Aprendizaje/Deberes:"),
-        sg.Input(key="APRENDIZAJE", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="APRENDIZAJE", do_not_clear=False, size=(10, 10)),
     ],
     [
         sg.Text("Participación en clase/Interés:"),
-        sg.Input(key="PARTICIPACION", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="PARTICIPACION", do_not_clear=False, size=(10, 10)),
     ],
     [
         sg.Text("Comportamiento:"),
-        sg.Input(key="COMPORTAMIENTO", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="COMPORTAMIENTO", do_not_clear=False, size=(10, 10)),
     ],
     [
         sg.Text("Progreso durante del trimestre:"),
-        sg.Input(key="PROGRESO", do_not_clear=False, size=(30, 30)),
+        sg.Input(key="PROGRESO", do_not_clear=False, size=(10, 10)),
     ],
+    [
+        sg.Text("Prueba:"),
+        sg.Input(key="PRUEBA", do_not_clear=True, size=(30, 30)),
+    ],
+    # CREATE BUTTON
     [sg.Button("Create Report"), sg.Exit()],
 ]
 
