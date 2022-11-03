@@ -121,6 +121,7 @@ layout = [
     # [sg.Text(f"Length: {length_of_comment}")],
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
+    [sg.Text("Despedida:"), sg.Input(key="DESPEDIDA", do_not_clear=True, size=(30, 30), font="Consolas 12")],
     [sg.Button("Create Report"), sg.Exit()],
 ]
 
