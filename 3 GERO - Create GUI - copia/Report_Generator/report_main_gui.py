@@ -114,19 +114,35 @@ layout = [
     [
         sg.Text("Comentario:"),
         sg.Multiline(
-            key="COMENTARIO", font="Consolas 12", do_not_clear=False, size=(40, 5)
+            key="COMENTARIO",
+            font="Consolas 12",
+            do_not_clear=False,
+            size=(60, 7),
+            autoscroll=False,
         ),
     ],
     # PUT the length of what is written in COMENTARIO
     # [sg.Text(f"Length: {length_of_comment}")],
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
-    [sg.Text("Despedida:"), sg.Input(key="DESPEDIDA", do_not_clear=True, size=(30, 30), font="Consolas 12")],
+    [
+        sg.Text("Despedida:"),
+        sg.Input(
+            key="DESPEDIDA",
+            do_not_clear=True,
+            size=(30, 30),
+            font="Consolas 12",
+            default_text="¡Felices Vacaciones!",
+        ),
+    ],
     [sg.Button("Create Report"), sg.Exit()],
 ]
 
 window = sg.Window(
-    "Report Generator", layout, element_justification="right", icon="./futur_logo.ico"
+    "Futur Idiomes - Report Generator",
+    layout,
+    element_justification="right",
+    icon="./futur_logo.ico",
 )
 
 
@@ -138,6 +154,16 @@ while True:
         # print(event, values)
 
         # Calculate total
+
+        # si una destreza se asigna con --, significa que no se evaluó en la prueba
+        # si una destreza se asigna con NA, significa que el alumno no asistió en la prueba
+
+        for value in values:
+            if values[value] == "--" or values[value] == "NA":
+                values[value] = 0
+                
+        # FIXME: print in final report -- or NA not 0
+
         values["TOTAL"] = (
             float(values["LISTENING"])
             + float(values["READING_USE_LANGUAGE"])
