@@ -72,7 +72,12 @@ layout = [
     [sg.Button("Create Report"), sg.Exit()],
 ]
 
-window = sg.Window("Report Generator", layout, element_justification="right")
+# window = sg.Window("Report Generator", layout, element_justification="right")
+
+
+window = sg.Window("Report Generator", icon="/futur_logo.ico").Layout(
+    layout, element_justification="right"
+)
 
 while True:
     event, values = window.read()
