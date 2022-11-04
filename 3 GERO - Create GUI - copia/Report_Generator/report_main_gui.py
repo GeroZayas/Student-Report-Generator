@@ -172,18 +172,20 @@ while True:
         # si una destreza se asigna con --, significa que no se evaluó en la prueba
         # si una destreza se asigna con NA, significa que el alumno no asistió en la prueba
 
-        for value in values:
-            if values[value] == "--" or values[value] == "NA":
-                values[value] = 0
-
         # FIXME: print in final report -- or NA not 0
 
-        values["TOTAL"] = (
-            float(values["LISTENING"])
-            + float(values["READING_USE_LANGUAGE"])
-            + float(values["WRITING"])
-            + float(values["SPEAKING"])
-        ) / 4
+        # TODO: CONTINUE FIXING THIS
+
+        try:
+            values["TOTAL"] = (
+                float(values["LISTENING"])
+                + float(values["READING_USE_LANGUAGE"])
+                + float(values["WRITING"])
+                + float(values["SPEAKING"])
+            ) / 4
+
+        except Exception:
+            values["TOTAL"] = "--"
 
         # Render the template, save new word document & inform user
         doc.render(values)
