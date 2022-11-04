@@ -148,7 +148,7 @@ window = sg.Window(
     "Futur Idiomes - Report Generator",
     layout,
     element_justification="left",
-    icon="./futur_logo.ico",
+    icon="./3 GERO - Create GUI - copia/Report_Generator/futur_logo.ico",
     resizable=False,
 )
 
