@@ -11,102 +11,100 @@ today = datetime.datetime.today()
 
 sg.theme("BrightColors")
 
-# length of COMENTARIO
-
-length_of_comment = 460
+# Fonts
+FONT = "Consolas 12"
+TEXT_SIZE = (22, 1)
 
 
 layout = [
     # [sg.Image(source="./futur_logo.jpg")],
     [
-        sg.Text("Student:"),
-        sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font="Consolas 12"),
+        sg.Text("Student:", TEXT_SIZE),
+        sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font=FONT),
     ],
     [
-        sg.Text("Level:"),
-        sg.Input(key="LEVEL", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+        sg.Text("Level:", TEXT_SIZE),
+        sg.Input(key="LEVEL", do_not_clear=True, size=(30, 30), font=FONT),
     ],
     [
-        sg.Text("Teacher:"),
-        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+        sg.Text("Teacher:", TEXT_SIZE),
+        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font=FONT),
     ],
     [
-        sg.Text("Periodo:"),
-        sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12"),
-    ],
-    [
-        sg.Text("Asistencia:"),
+        sg.Text("Periodo:", TEXT_SIZE),
         sg.Input(
-            key="ASISTENCIA", do_not_clear=False, size=(10, 10), font="Consolas 12"
+            key="PERIOD",
+            do_not_clear=True,
+            size=(30, 30),
+            font=FONT,
+            default_text="1er Trimestre",
         ),
     ],
+    # --------------- GENERAL MARKS  ---------------
     [
-        sg.Text("Asimilación de material nuevo:"),
-        sg.Input(
-            key="ASIMILACION", do_not_clear=False, size=(10, 10), font="Consolas 12"
-        ),
+        sg.Text("Asistencia:", TEXT_SIZE),
+        sg.Input(key="ASISTENCIA", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
-        sg.Text("Aprendizaje/Deberes:"),
-        sg.Input(
-            key="APRENDIZAJE", do_not_clear=False, size=(10, 10), font="Consolas 12"
-        ),
+        sg.Text("Asimilación de material nuevo:", TEXT_SIZE),
+        sg.Input(key="ASIMILACION", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
-        sg.Text("Participación en clase/Interés:"),
-        sg.Input(
-            key="PARTICIPACION", do_not_clear=False, size=(10, 10), font="Consolas 12"
-        ),
+        sg.Text("Aprendizaje/Deberes:", TEXT_SIZE),
+        sg.Input(key="APRENDIZAJE", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
-        sg.Text("Comportamiento:"),
-        sg.Input(
-            key="COMPORTAMIENTO", do_not_clear=False, size=(10, 10), font="Consolas 12"
-        ),
+        sg.Text("Participación en clase/Interés:", TEXT_SIZE),
+        sg.Input(key="PARTICIPACION", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
-        sg.Text("Progreso durante del trimestre:"),
-        sg.Input(key="PROGRESO", do_not_clear=False, size=(10, 10), font="Consolas 12"),
+        sg.Text("Comportamiento:", TEXT_SIZE),
+        sg.Input(key="COMPORTAMIENTO", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
-        sg.Text("Prueba:"),
-        sg.Input(key="PRUEBA", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+        sg.Text("Progreso durante del trimestre:", TEXT_SIZE),
+        sg.Input(key="PROGRESO", do_not_clear=False, size=(10, 10), font=FONT),
     ],
-    # --------------- NOTAS ---------------
     [
-        sg.Text("Listening:"),
+        # FIXME:
+        sg.Text("Prueba:", TEXT_SIZE),
+        sg.Input(key="PRUEBA", do_not_clear=True, size=(30, 30), font=FONT),
+    ],
+    # --------------- EXAM MARKS ---------------
+    [
+        sg.Text("Listening:", TEXT_SIZE),
         sg.Input(
             key="LISTENING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 12",
+            font=FONT,
         ),
     ],
     [
-        sg.Text("Reading and Use of Language:"),
+        sg.Text("Reading and Use of Language:", TEXT_SIZE),
         sg.Input(
             key="READING_USE_LANGUAGE",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 12",
+            font=FONT,
         ),
     ],
     [
-        sg.Text("Writing:"),
+        sg.Text("Writing:", TEXT_SIZE),
         sg.Input(
             key="WRITING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 12",
+            font=FONT,
         ),
     ],
     [
-        sg.Text("Speaking:"),
+        sg.Text("Speaking:", TEXT_SIZE),
         sg.Input(
             key="SPEAKING",
             do_not_clear=False,
             size=(10, 10),
-            font="Consolas 12",
+            font=FONT,
         ),
     ],
     # COMENTARIO is multiline
@@ -115,7 +113,7 @@ layout = [
         sg.Text("Comentario:"),
         sg.Multiline(
             key="COMENTARIO",
-            font="Consolas 12",
+            font=FONT,
             do_not_clear=False,
             size=(60, 7),
             autoscroll=False,
@@ -126,22 +124,30 @@ layout = [
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
     [
-        sg.Text("Despedida:"),
+        sg.Text("Despedida:", TEXT_SIZE),
         sg.Input(
             key="DESPEDIDA",
             do_not_clear=True,
             size=(30, 30),
-            font="Consolas 12",
+            font=FONT,
             default_text="¡Felices Vacaciones!",
         ),
     ],
-    [sg.Button("Create Report"), sg.Exit()],
+    [
+        sg.Button(key="GENERATE"
+            ,image_filename="./3 GERO - Create GUI - copia/Report_Generator/button.png",
+            button_color="white",
+            auto_size_button=True,
+            border_width=0,
+        ),
+        sg.Exit(button_color='white'),
+    ],
 ]
 
 window = sg.Window(
     "Futur Idiomes - Report Generator",
     layout,
-    element_justification="right",
+    element_justification="left",
     icon="./futur_logo.ico",
     resizable=False,
 )
@@ -151,7 +157,7 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == "Exit":
         break
-    if event == "Create Report":
+    if event == "GENERATE":
         # print(event, values)
 
         # Calculate total
@@ -174,7 +180,9 @@ while True:
 
         # Render the template, save new word document & inform user
         doc.render(values)
-        output_path = Path(__file__).parent / f"{values['STUDENT']}-report.docx"
+        output_path = (
+            Path(__file__).parent / f"{values['STUDENT']}-{values['LEVEL']}.docx"
+        )
         doc.save(output_path)
         sg.popup("File saved", f"File has been saved here: {output_path}")
 
