@@ -26,20 +26,15 @@ layout = [
     ],
     [
         sg.Text("Teacher:"),
-        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font="Consolas 12"), sg.Text("Periodo:"),
-        sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12")
+        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+        sg.Text("Periodo:"),
+        sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12"),
     ],
-    # [
-    #     sg.Text("Periodo:"),
-    #     sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12"),
-    # ],
     [
         sg.Text("Asistencia:"),
         sg.Input(
             key="ASISTENCIA", do_not_clear=False, size=(10, 10), font="Consolas 12"
         ),
-    ],
-    [
         sg.Text("Asimilación de material nuevo:"),
         sg.Input(
             key="ASIMILACION", do_not_clear=False, size=(10, 10), font="Consolas 12"
@@ -50,8 +45,6 @@ layout = [
         sg.Input(
             key="APRENDIZAJE", do_not_clear=False, size=(10, 10), font="Consolas 12"
         ),
-    ],
-    [
         sg.Text("Participación en clase/Interés:"),
         sg.Input(
             key="PARTICIPACION", do_not_clear=False, size=(10, 10), font="Consolas 12"
@@ -62,8 +55,6 @@ layout = [
         sg.Input(
             key="COMPORTAMIENTO", do_not_clear=False, size=(10, 10), font="Consolas 12"
         ),
-    ],
-    [
         sg.Text("Progreso durante del trimestre:"),
         sg.Input(key="PROGRESO", do_not_clear=False, size=(10, 10), font="Consolas 12"),
     ],
