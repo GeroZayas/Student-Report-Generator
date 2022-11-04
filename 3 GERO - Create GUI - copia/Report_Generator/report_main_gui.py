@@ -21,19 +21,18 @@ layout = [
     [
         sg.Text("Student:"),
         sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font="Consolas 12"),
-    ],
-    [
         sg.Text("Level:"),
         sg.Input(key="LEVEL", do_not_clear=True, size=(30, 30), font="Consolas 12"),
     ],
     [
         sg.Text("Teacher:"),
-        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+        sg.Input(key="TEACHER", do_not_clear=True, size=(30, 30), font="Consolas 12"), sg.Text("Periodo:"),
+        sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12")
     ],
-    [
-        sg.Text("Periodo:"),
-        sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12"),
-    ],
+    # [
+    #     sg.Text("Periodo:"),
+    #     sg.Input(key="PERIOD", do_not_clear=True, size=(30, 30), font="Consolas 12"),
+    # ],
     [
         sg.Text("Asistencia:"),
         sg.Input(
@@ -141,7 +140,7 @@ layout = [
 window = sg.Window(
     "Futur Idiomes - Report Generator",
     layout,
-    element_justification="right",
+    element_justification="left",
     icon="./futur_logo.ico",
 )
 
@@ -161,7 +160,7 @@ while True:
         for value in values:
             if values[value] == "--" or values[value] == "NA":
                 values[value] = 0
-                
+
         # FIXME: print in final report -- or NA not 0
 
         values["TOTAL"] = (
