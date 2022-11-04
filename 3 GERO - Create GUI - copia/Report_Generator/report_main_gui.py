@@ -11,7 +11,7 @@ doc = DocxTemplate(document_path)
 
 today = datetime.datetime.today()
 
-sg.theme("BrightColors")
+sg.theme("DarkAmber")
 
 # Fonts
 FONT = "Consolas 12"
