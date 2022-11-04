@@ -14,6 +14,7 @@ sg.theme("BrightColors")
 # Fonts
 FONT = "Consolas 12"
 TEXT_SIZE = (22, 1)
+TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la prueba"
 
 
 layout = [
@@ -84,6 +85,7 @@ layout = [
             do_not_clear=False,
             size=(10, 10),
             font=FONT,
+            tooltip=TOOLTIP_EXAM_MARKS,
         ),
     ],
     [
@@ -93,6 +95,7 @@ layout = [
             do_not_clear=False,
             size=(10, 10),
             font=FONT,
+            tooltip=TOOLTIP_EXAM_MARKS,
         ),
     ],
     [
@@ -102,6 +105,7 @@ layout = [
             do_not_clear=False,
             size=(10, 10),
             font=FONT,
+            tooltip=TOOLTIP_EXAM_MARKS,
         ),
     ],
     [
@@ -111,6 +115,7 @@ layout = [
             do_not_clear=False,
             size=(10, 10),
             font=FONT,
+            tooltip=TOOLTIP_EXAM_MARKS,
         ),
     ],
     # COMENTARIO is multiline
@@ -172,10 +177,6 @@ while True:
         # si una destreza se asigna con --, significa que no se evaluó en la prueba
         # si una destreza se asigna con NA, significa que el alumno no asistió en la prueba
 
-        # FIXME: print in final report -- or NA not 0
-
-        # TODO: CONTINUE FIXING THIS
-
         try:
             values["TOTAL"] = (
                 float(values["LISTENING"])
@@ -185,7 +186,7 @@ while True:
             ) / 4
 
         except Exception:
-            values["TOTAL"] = "--"
+            values["TOTAL"] = "..."
 
         # Render the template, save new word document & inform user
         doc.render(values)
