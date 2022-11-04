@@ -143,6 +143,7 @@ window = sg.Window(
     layout,
     element_justification="right",
     icon="./futur_logo.ico",
+    resizable=False,
 )
 
 
@@ -161,7 +162,7 @@ while True:
         for value in values:
             if values[value] == "--" or values[value] == "NA":
                 values[value] = 0
-                
+
         # FIXME: print in final report -- or NA not 0
 
         values["TOTAL"] = (
