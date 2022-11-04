@@ -68,7 +68,13 @@ layout = [
     [
         # FIXME:
         sg.Text("Prueba:", TEXT_SIZE),
-        sg.Input(key="PRUEBA", do_not_clear=True, size=(30, 30), font=FONT),
+        sg.Input(
+            key="PRUEBA",
+            do_not_clear=True,
+            size=(30, 30),
+            font=FONT,
+            default_text="Trimestral",
+        ),
     ],
     # --------------- EXAM MARKS ---------------
     [
@@ -134,13 +140,14 @@ layout = [
         ),
     ],
     [
-        sg.Button(key="GENERATE"
-            ,image_filename="./3 GERO - Create GUI - copia/Report_Generator/button.png",
+        sg.Button(
+            key="GENERATE",
+            image_filename="./3 GERO - Create GUI - copia/Report_Generator/button.png",
             button_color="white",
             auto_size_button=True,
             border_width=0,
         ),
-        sg.Exit(button_color='white'),
+        sg.Exit(button_color="white"),
     ],
 ]
 
