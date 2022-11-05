@@ -149,7 +149,7 @@ layout = [
     [
         sg.Button(
             key="GENERATE",
-            image_filename="./3 GERO - Create GUI - copia/Report_Generator/button.png",
+            image_filename="./button.png",
             button_color="white",
             auto_size_button=True,
             border_width=0,
