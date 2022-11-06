@@ -12,6 +12,9 @@ import os
 import sys
 
 
+# To understand this solution applying this function of resource_path go to->
+# https://stackoverflow.com/questions/31836104/pyinstaller-and-onefile-how-to-include-an-image-in-the-exe-file
+# specifically to "A clear and unambiguous guide"
 def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
@@ -20,10 +23,11 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+
 # ----------------------------------------------------------------
 
 
-document_path = Path(__file__).parent / "./model.docx"
+document_path = resource_path(Path(__file__).parent / "./model.docx")
 doc = DocxTemplate(document_path)
 
 today = datetime.datetime.today()
@@ -173,6 +177,12 @@ layout = [
         ),
         sg.Exit(button_color="white"),
     ],
+    # [
+    #     sg.InputText(
+    #         key="file_save_as_input", enable_events=True, default_text="filename"
+    #     ),
+    #     sg.FileSaveAs(key="file_save_as_key", initial_folder="/tmp"),
+    # ],
 ]
 
 window = sg.Window(
@@ -209,10 +219,9 @@ while True:
 
         # Render the template, save new word document & inform user
         doc.render(values)
-        output_path = (
-            Path(__file__).parent / f"{values['STUDENT']}-{values['LEVEL']}.docx"
-        )
-        doc.save(output_path)
-        sg.popup("File saved", f"File has been saved here: {output_path}")
+        # output_path = (Path(__file__).parent / f"{values['STUDENT']}-{values['LEVEL']}.docx")
+
+        doc.save(f"./{values['STUDENT']}-{values['LEVEL']}.docx")
+        sg.popup("File has been saved!")
 
 window.close()
