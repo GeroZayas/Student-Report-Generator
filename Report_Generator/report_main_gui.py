@@ -6,6 +6,23 @@ from pathlib import Path
 import PySimpleGUI as sg
 from docxtpl import DocxTemplate
 
+
+# THIS CODE IS ADDED TO BE ABLE TO USE IMAGES WHEN MADE EXECUTABLE
+import os
+import sys
+
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+# ----------------------------------------------------------------
+
+
 document_path = Path(__file__).parent / "./model.docx"
 doc = DocxTemplate(document_path)
 
@@ -149,7 +166,7 @@ layout = [
     [
         sg.Button(
             key="GENERATE",
-            image_filename="./button.png",
+            image_filename=resource_path("button.png"),
             button_color="white",
             auto_size_button=True,
             border_width=0,
@@ -162,7 +179,7 @@ window = sg.Window(
     "Futur Idiomes - Report Generator",
     layout,
     element_justification="left",
-    icon="./3 GERO - Create GUI - copia/Report_Generator/futur_logo.ico",
+    icon=resource_path("futur_logo.ico"),
     resizable=False,
 )
 
