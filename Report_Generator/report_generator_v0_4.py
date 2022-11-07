@@ -56,7 +56,7 @@ PERIODOS = ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
 # Fonts
 FONT = "Consolas 12"
 TEXT_SIZE = (22, 1)
-TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la prueba"
+TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió a la prueba"
 
 # --------------------------------------------------------------------------
 
@@ -144,6 +144,7 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
+        sg.Text("'--': no se evaluó en la prueba")
     ],
     [
         sg.Text("Reading and Use of Language:", TEXT_SIZE),
@@ -154,6 +155,7 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
+        sg.Text("'NA': no asistió a la prueba")
     ],
     [
         sg.Text("Writing:", TEXT_SIZE),
@@ -213,7 +215,7 @@ layout = [
 ]
 
 window = sg.Window(
-    "Futur Idiomes - Report Generator",
+    "Futur Idiomes - Report Generator (v0.4)",
     layout,
     element_justification="left",
     icon=resource_path("futur_logo.ico"),
