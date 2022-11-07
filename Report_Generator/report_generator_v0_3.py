@@ -4,7 +4,6 @@
 
 import datetime
 from pathlib import Path
-from math import ceil
 
 
 import PySimpleGUI as sg
@@ -228,15 +227,13 @@ while True:
         break
     if event == "GENERATE":
 
-
-
         try:
             result_total = (
-            float(values["LISTENING"])
-            + float(values["READING_USE_LANGUAGE"])
-            + float(values["WRITING"])
-            + float(values["SPEAKING"])
-        ) / 4
+                float(values["LISTENING"])
+                + float(values["READING_USE_LANGUAGE"])
+                + float(values["WRITING"])
+                + float(values["SPEAKING"])
+            ) / 4
             values["TOTAL"] = round(result_total, 2)
         except Exception:
             values["TOTAL"] = "..."
