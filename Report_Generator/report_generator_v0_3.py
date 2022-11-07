@@ -228,14 +228,15 @@ while True:
         break
     if event == "GENERATE":
 
-        result_total = (
+
+
+        try:
+            result_total = (
             float(values["LISTENING"])
             + float(values["READING_USE_LANGUAGE"])
             + float(values["WRITING"])
             + float(values["SPEAKING"])
         ) / 4
-
-        try:
             values["TOTAL"] = round(result_total, 2)
         except Exception:
             values["TOTAL"] = "..."
