@@ -42,6 +42,9 @@ FONT = "Consolas 12"
 TEXT_SIZE = (22, 1)
 TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la prueba"
 
+# CONSTANTS
+TYPES_OF_PRUEBAS = ["Trimestral", "Final", "Final (Simulación de examen FCE)"]
+
 
 layout = [
     [
@@ -93,13 +96,14 @@ layout = [
     ],
     [
         sg.Text("Prueba:", TEXT_SIZE),
-        sg.Input(
-            key="PRUEBA",
-            do_not_clear=True,
-            size=(30, 30),
-            font=FONT,
-            default_text="Trimestral",
-        ),
+        # sg.Input(
+        #     key="PRUEBA",
+        #     do_not_clear=True,
+        #     size=(30, 30),
+        #     font=FONT,
+        #     default_text="Trimestral",
+        # ),
+        sg.Combo(values=TYPES_OF_PRUEBAS, bind_return_key=True, enable_events=True, key="PRUEBA"),
     ],
     # --------------- EXAM MARKS ---------------
     [
