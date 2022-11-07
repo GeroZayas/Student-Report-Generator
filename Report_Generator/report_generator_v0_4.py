@@ -59,7 +59,7 @@ TEXT_SIZE = (22, 1)
 TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió a la prueba"
 
 
-# --------------------------------------------------------------------------
+# ----------------------------LAYOUT----------------------------
 
 layout = [
     [
@@ -98,31 +98,28 @@ layout = [
             auto_size_text=True,
         ),
     ],
+    [sg.HorizontalSeparator(color="white", pad=15)],
     # --------------- GENERAL MARKS  ---------------
     [
         sg.Text("Asistencia:", TEXT_SIZE),
         sg.Input(key="ASISTENCIA", do_not_clear=False, size=(10, 10), font=FONT),
-    ],
-    [
         sg.Text("Asimilación de material nuevo:", TEXT_SIZE),
         sg.Input(key="ASIMILACION", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
         sg.Text("Aprendizaje/Deberes:", TEXT_SIZE),
         sg.Input(key="APRENDIZAJE", do_not_clear=False, size=(10, 10), font=FONT),
-    ],
-    [
         sg.Text("Participación en clase/Interés:", TEXT_SIZE),
         sg.Input(key="PARTICIPACION", do_not_clear=False, size=(10, 10), font=FONT),
     ],
     [
         sg.Text("Comportamiento:", TEXT_SIZE),
         sg.Input(key="COMPORTAMIENTO", do_not_clear=False, size=(10, 10), font=FONT),
-    ],
-    [
         sg.Text("Progreso durante del trimestre:", TEXT_SIZE),
         sg.Input(key="PROGRESO", do_not_clear=False, size=(10, 10), font=FONT),
     ],
+    [sg.HorizontalSeparator(color="white", pad=15)],
+    # --------------- EXAM MARKS ---------------
     [
         sg.Text("Prueba:", TEXT_SIZE),
         sg.Combo(
@@ -135,7 +132,14 @@ layout = [
             auto_size_text=True,
         ),
     ],
-    # --------------- EXAM MARKS ---------------
+    [
+        sg.Push(),
+        sg.Text(
+            "'--' -> no se evaluó en la prueba    |    'NA' -> no asistió a la prueba",
+            text_color="grey",
+        ),
+        sg.Push(),
+    ],
     [
         sg.Text("Listening:", TEXT_SIZE),
         sg.Input(
@@ -145,9 +149,6 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
-        sg.Text("'--': no se evaluó en la prueba", text_color="grey"),
-    ],
-    [
         sg.Text("Reading and Use of Language:", TEXT_SIZE),
         sg.Input(
             key="READING_USE_LANGUAGE",
@@ -156,7 +157,6 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
-        sg.Text("'NA': no asistió a la prueba", text_color="grey"),
     ],
     [
         sg.Text("Writing:", TEXT_SIZE),
@@ -167,8 +167,6 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
-    ],
-    [
         sg.Text("Speaking:", TEXT_SIZE),
         sg.Input(
             key="SPEAKING",
@@ -180,6 +178,7 @@ layout = [
     ],
     # COMENTARIO is multiline
     # The length of COMENTARIO shoul be more or less 460 characters, including spaces
+    [sg.HorizontalSeparator(color="white", pad=15)],
     [
         sg.Text("Comentario:"),
         sg.Multiline(
@@ -193,6 +192,7 @@ layout = [
     # --------------- END OF NOTAS ---------------
     # CREATE BUTTON
     [
+        sg.Push(),
         sg.Text("Despedida:", TEXT_SIZE),
         sg.Input(
             key="DESPEDIDA",
@@ -203,6 +203,7 @@ layout = [
         ),
     ],
     [
+        sg.Push(),
         sg.Button(
             key="GENERATE",
             image_filename=resource_path("button.png"),
@@ -210,8 +211,13 @@ layout = [
             auto_size_button=True,
             border_width=0,
         ),
-        sg.Exit(),
+        # sg.Exit(),
+        sg.Push(),
+    ],
+    [
+        sg.Push(),
         sg.Text("Made by Gero Zayas", background_color="Black", text_color="Gold"),
+        sg.Push(),
     ],
 ]
 
