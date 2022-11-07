@@ -42,7 +42,7 @@ sg.theme("LightBrown3")
 
 # CONSTANTS
 TYPES_OF_PRUEBAS = ["Trimestral", "Final", "Final (Simulación de examen FCE)"]
-PERIODOS= ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
+PERIODOS = ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
 
 # Fonts
 FONT = "Consolas 12"
@@ -54,7 +54,7 @@ TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la
 layout = [
     [
         sg.Text("Student:", TEXT_SIZE),
-        sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font=FONT),
+        sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font=FONT, ),
     ],
     [
         sg.Text("Level:", TEXT_SIZE),
@@ -76,8 +76,8 @@ layout = [
         sg.Combo(
             values=PERIODOS,
             key="PERIOD",
-            bind_return_key=True,
-            enable_events=True,
+            # bind_return_key=True,
+            # enable_events=True,
             size=(30, 30),
             font=FONT,
             auto_size_text=True,
@@ -112,8 +112,8 @@ layout = [
         sg.Text("Prueba:", TEXT_SIZE),
         sg.Combo(
             values=TYPES_OF_PRUEBAS,
-            bind_return_key=True,
-            enable_events=True,
+            # bind_return_key=True,
+            # enable_events=True,
             key="PRUEBA",
             size=(30, 30),
             font=FONT,
