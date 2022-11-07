@@ -1,6 +1,6 @@
 # INSPIRED BY Sven from Coding Is Fun
 
-# Report Generator [version 0.2] [Nov 6th, 2022]
+# Report Generator [version 0.4] [Nov 7th, 2022]
 
 import datetime
 from pathlib import Path
