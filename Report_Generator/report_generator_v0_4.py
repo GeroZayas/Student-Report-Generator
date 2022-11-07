@@ -58,6 +58,7 @@ FONT = "Consolas 12"
 TEXT_SIZE = (22, 1)
 TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió a la prueba"
 
+
 # --------------------------------------------------------------------------
 
 layout = [
@@ -144,7 +145,7 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
-        sg.Text("'--': no se evaluó en la prueba")
+        sg.Text("'--': no se evaluó en la prueba", text_color="grey"),
     ],
     [
         sg.Text("Reading and Use of Language:", TEXT_SIZE),
@@ -155,7 +156,7 @@ layout = [
             font=FONT,
             tooltip=TOOLTIP_EXAM_MARKS,
         ),
-        sg.Text("'NA': no asistió a la prueba")
+        sg.Text("'NA': no asistió a la prueba", text_color="grey"),
     ],
     [
         sg.Text("Writing:", TEXT_SIZE),
