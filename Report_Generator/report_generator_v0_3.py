@@ -4,6 +4,7 @@
 
 import datetime
 from pathlib import Path
+from math import ceil
 
 
 import PySimpleGUI as sg
@@ -42,6 +43,15 @@ sg.theme("LightBrown3")
 
 # CONSTANTS
 TYPES_OF_PRUEBAS = ["Trimestral", "Final", "Final (Simulación de examen FCE)"]
+LEVELS = [
+    "Young Learners",
+    "Starters",
+    "Movers",
+    "Flyers",
+    "KET",
+    "PET",
+    "FCE",
+]
 PERIODOS = ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
 
 # Fonts
@@ -54,11 +64,16 @@ TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la
 layout = [
     [
         sg.Text("Student:", TEXT_SIZE),
-        sg.Input(key="STUDENT", do_not_clear=False, size=(30, 30), font=FONT, ),
+        sg.Input(
+            key="STUDENT",
+            do_not_clear=False,
+            size=(30, 30),
+            font=FONT,
+        ),
     ],
     [
         sg.Text("Level:", TEXT_SIZE),
-        sg.Input(key="LEVEL", do_not_clear=True, size=(30, 30), font=FONT),
+        sg.Combo(key="LEVEL", values=LEVELS, size=(30, 30), font=FONT),
     ],
     [
         sg.Text("Teacher:", TEXT_SIZE),
@@ -213,14 +228,15 @@ while True:
         break
     if event == "GENERATE":
 
-        try:
-            values["TOTAL"] = (
-                float(values["LISTENING"])
-                + float(values["READING_USE_LANGUAGE"])
-                + float(values["WRITING"])
-                + float(values["SPEAKING"])
-            ) / 4
+        result_total = (
+            float(values["LISTENING"])
+            + float(values["READING_USE_LANGUAGE"])
+            + float(values["WRITING"])
+            + float(values["SPEAKING"])
+        ) / 4
 
+        try:
+            values["TOTAL"] = round(result_total, 2)
         except Exception:
             values["TOTAL"] = "..."
 
