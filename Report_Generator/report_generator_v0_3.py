@@ -37,14 +37,19 @@ today = datetime.datetime.today()
 
 sg.theme("LightBrown3")
 
+
+# --------------------------------------------------------------------------
+
+# CONSTANTS
+TYPES_OF_PRUEBAS = ["Trimestral", "Final", "Final (Simulación de examen FCE)"]
+PERIODOS= ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
+
 # Fonts
 FONT = "Consolas 12"
 TEXT_SIZE = (22, 1)
 TOOLTIP_EXAM_MARKS = "'--': no se evaluó en la prueba | 'NA': no asistió en la prueba"
 
-# CONSTANTS
-TYPES_OF_PRUEBAS = ["Trimestral", "Final", "Final (Simulación de examen FCE)"]
-
+# --------------------------------------------------------------------------
 
 layout = [
     [
@@ -61,12 +66,21 @@ layout = [
     ],
     [
         sg.Text("Periodo:", TEXT_SIZE),
-        sg.Input(
+        # sg.Input(
+        #     key="PERIOD",
+        #     do_not_clear=True,
+        #     size=(30, 30),
+        #     font=FONT,
+        #     default_text="1er Trimestre",
+        # ),
+        sg.Combo(
+            values=PERIODOS,
             key="PERIOD",
-            do_not_clear=True,
+            bind_return_key=True,
+            enable_events=True,
             size=(30, 30),
             font=FONT,
-            default_text="1er Trimestre",
+            auto_size_text=True,
         ),
     ],
     # --------------- GENERAL MARKS  ---------------
@@ -96,14 +110,15 @@ layout = [
     ],
     [
         sg.Text("Prueba:", TEXT_SIZE),
-        # sg.Input(
-        #     key="PRUEBA",
-        #     do_not_clear=True,
-        #     size=(30, 30),
-        #     font=FONT,
-        #     default_text="Trimestral",
-        # ),
-        sg.Combo(values=TYPES_OF_PRUEBAS, bind_return_key=True, enable_events=True, key="PRUEBA"),
+        sg.Combo(
+            values=TYPES_OF_PRUEBAS,
+            bind_return_key=True,
+            enable_events=True,
+            key="PRUEBA",
+            size=(30, 30),
+            font=FONT,
+            auto_size_text=True,
+        ),
     ],
     # --------------- EXAM MARKS ---------------
     [
