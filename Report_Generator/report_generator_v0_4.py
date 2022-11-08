@@ -250,7 +250,7 @@ while True:
         # Render the template, save new word document & inform user
         doc.render(values)
 
-        doc.save(f"./{values['STUDENT']}-{values['LEVEL']}.docx")
+        doc.save(f"./00_GENERATED_REPORTS/{values['STUDENT']}-{values['LEVEL']}.docx")
         sg.popup("File has been saved!")
 
 window.close()
