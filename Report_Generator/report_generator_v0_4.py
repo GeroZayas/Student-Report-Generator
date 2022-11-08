@@ -27,7 +27,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-# ----------------------------------------------------------------
+# --------------------------------------------------------------------------
 
 
 document_path = resource_path(Path(__file__).parent / "./model.docx")
@@ -36,6 +36,18 @@ doc = DocxTemplate(document_path)
 today = datetime.datetime.today()
 
 sg.theme("LightBrown3")
+
+
+# --------------------------------------------------------------------------
+
+# TODO: Create a new file if NOT existing one! called 00_GENERATED_REPORTS
+
+new_folder = resource_path(Path(__file__).parent / "./00_GENERATED_REPORTS")
+
+if not os.path.exists(new_folder):
+    os.makedirs(new_folder)
+
+# --------------------------------------------------------------------------
 
 
 # --------------------------------------------------------------------------
