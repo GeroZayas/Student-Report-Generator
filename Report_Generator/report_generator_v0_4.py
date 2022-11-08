@@ -40,7 +40,6 @@ sg.theme("LightBrown3")
 
 # --------------------------------------------------------------------------
 
-# TODO: Create a new file if NOT existing one! called 00_GENERATED_REPORTS
 
 new_folder = resource_path(Path(__file__).parent / "./00_GENERATED_REPORTS")
 
