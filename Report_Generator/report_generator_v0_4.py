@@ -35,7 +35,12 @@ def main():
 
     today = datetime.datetime.today()
 
-    sg.theme("LightBrown3")
+    # CHANGE THEMES ON THE FLY!
+
+    themes = sg.ListOfLookAndFeelValues()
+    selected_theme = "LightBrown3"
+    current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
+    sg.ChangeLookAndFeel(selected_theme)
 
     # --------------------------------------------------------------------------
 
@@ -230,6 +235,18 @@ def main():
             sg.Text("Made by Gero Zayas", background_color="Black", text_color="Gold"),
             sg.Push(),
         ],
+        [
+            sg.Push(),
+            sg.Text("Choose your favorite theme:", TEXT_SIZE),
+            sg.Combo(
+                values=themes,
+                default_value=selected_theme,
+                size=(15, 1),
+                enable_events=True,
+                key="select_theme",
+            ),
+            sg.Push(),
+        ],
     ]
 
     window = sg.Window(
@@ -265,11 +282,16 @@ def main():
             )
             sg.popup("File has been saved!")
 
+        # FIXME:
+        # if event == "select_theme":
+        #     selected_theme = values
+        #     sg.ChangeLookAndFeel(selected_theme)
+
     window.close()
 
     return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # This code won't run if this file is imported.
     main()
