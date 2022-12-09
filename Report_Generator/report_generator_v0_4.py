@@ -195,7 +195,7 @@ layout = [
         sg.Multiline(
             key="COMENTARIO",
             font=FONT,
-            do_not_clear=False,
+            do_not_clear=True,
             size=(60, 7),
             autoscroll=False,
         ),
