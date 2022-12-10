@@ -266,9 +266,12 @@ def main():
         if event == sg.WIN_CLOSED or event == "Exit":
             break
 
+
+        # FIXME: Change the theme when i choose something from combo list
         if event == "select_theme":
-            sg.theme(values["select_theme"])
+            selected_theme = values["select_theme"]
             print(selected_theme)
+            sg.ChangeLookAndFeel(selected_theme)
 
         if event == "GENERATE":
 
