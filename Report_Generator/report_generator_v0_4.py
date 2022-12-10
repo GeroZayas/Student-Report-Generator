@@ -40,8 +40,8 @@ def main():
     # --------------------------------------------------------------------------
 
     themes = sg.ListOfLookAndFeelValues()
-    selected_theme = "LightBrown3"
-    current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
+    selected_theme = "LightBrown4"
+    # current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
     sg.ChangeLookAndFeel(selected_theme)
 
     # --------------------------------------------------------------------------
@@ -265,6 +265,10 @@ def main():
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == "Exit":
             break
+        if event == "select_theme":
+            sg.theme(str(values["select_theme"]))
+            print(values["select_theme"])
+
         if event == "GENERATE":
 
             try:
@@ -286,10 +290,6 @@ def main():
             )
             sg.popup("File has been saved!")
         # FIXME: Get values from Combo to change the theme
-
-        if event == "select_theme":
-            combo = values['select_theme']
-            sg.ChangeLookAndFeel(combo)
 
     window.close()
 
