@@ -265,9 +265,10 @@ def main():
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == "Exit":
             break
+
         if event == "select_theme":
-            sg.theme(str(values["select_theme"]))
-            print(values["select_theme"])
+            sg.theme(values["select_theme"])
+            print(selected_theme)
 
         if event == "GENERATE":
 
