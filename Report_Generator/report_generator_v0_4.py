@@ -285,11 +285,11 @@ def main():
                 f"./00_GENERATED_REPORTS/{values['STUDENT']}-{values['LEVEL']}.docx"
             )
             sg.popup("File has been saved!")
-
         # FIXME: Get values from Combo to change the theme
-        # if event == "select_theme":
-        #     selected_theme = values
-        #     sg.ChangeLookAndFeel(selected_theme)
+
+        if event == "select_theme":
+            combo = values['select_theme']
+            sg.ChangeLookAndFeel(combo)
 
     window.close()
 
