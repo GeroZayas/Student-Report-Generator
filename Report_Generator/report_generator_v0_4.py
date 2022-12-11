@@ -41,7 +41,7 @@ def main():
     # --------------------------------------------------------------------------
 
     themes = sg.theme_list()
-    selected_theme = "DefaultNoMoreNagging"
+    selected_theme = "Default"
     sg.theme(selected_theme)
     # current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
     # sg.ChangeLookAndFeel(selected_theme)
