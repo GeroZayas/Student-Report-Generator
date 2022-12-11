@@ -293,7 +293,6 @@ def main():
                 f"./00_GENERATED_REPORTS/{values['STUDENT']}-{values['LEVEL']}.docx"
             )
             sg.popup("File has been saved!")
-        # FIXME: Get values from Combo to change the theme
 
     window.close()
 
