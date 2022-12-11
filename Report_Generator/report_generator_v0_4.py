@@ -4,6 +4,7 @@
 
 import datetime
 from pathlib import Path
+import random
 
 
 import PySimpleGUI as sg
@@ -39,10 +40,12 @@ def main():
     # --------------------------------------------------------------------------
     # --------------------------------------------------------------------------
 
-    themes = sg.ListOfLookAndFeelValues()
+    themes = sg.theme_list()
     selected_theme = "LightBrown4"
+    sg.theme(selected_theme)
     # current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
-    sg.ChangeLookAndFeel(selected_theme)
+    # sg.ChangeLookAndFeel(selected_theme)
+    # sg.theme(random.choice(sg.theme_list()))
 
     # --------------------------------------------------------------------------
     # --------------------------------------------------------------------------
@@ -262,16 +265,15 @@ def main():
     )
 
     while True:
-        event, values = window.read()
+        event, values = window.read(timeout=1000)
         if event == sg.WIN_CLOSED or event == "Exit":
             break
-
 
         # FIXME: Change the theme when i choose something from combo list
         if event == "select_theme":
             selected_theme = values["select_theme"]
             print(selected_theme)
-            sg.ChangeLookAndFeel(selected_theme)
+            sg.theme(selected_theme)
 
         if event == "GENERATE":
 
