@@ -41,7 +41,7 @@ def main():
     # --------------------------------------------------------------------------
 
     themes = sg.theme_list()
-    selected_theme = "Default"
+    selected_theme = "DefaultNoMoreNagging"
     sg.theme(selected_theme)
     # current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
     # sg.ChangeLookAndFeel(selected_theme)
@@ -242,18 +242,18 @@ def main():
             sg.Text("Made by Gero Zayas", background_color="Black", text_color="Gold"),
             sg.Push(),
         ],
-        [
-            sg.Push(),
-            sg.Text("Choose your favorite theme:", TEXT_SIZE),
-            sg.Combo(
-                values=themes,
-                default_value=selected_theme,
-                size=(15, 1),
-                enable_events=True,
-                key="select_theme",
-            ),
-            sg.Push(),
-        ],
+        # [
+        #     sg.Push(),
+        #     sg.Text("Choose your favorite theme:", TEXT_SIZE),
+        #     sg.Combo(
+        #         values=themes,
+        #         default_value=selected_theme,
+        #         size=(15, 1),
+        #         enable_events=True,
+        #         key="select_theme",
+        #     ),
+        #     sg.Push(),
+        # ],
     ]
 
     window = sg.Window(
