@@ -1,1 +1,1 @@
-# Language-Academy-Term-Report-Generator
+# Language-Academy-Student-Report-Generator
