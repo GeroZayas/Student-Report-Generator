@@ -1,7 +1,5 @@
 # INSPIRED BY Sven from Coding Is Fun
 
-# HEY
-
 # Report Generator [version 0.4] [Nov 7th, 2022]
 
 import datetime
