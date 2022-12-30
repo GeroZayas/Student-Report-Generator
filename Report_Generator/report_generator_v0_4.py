@@ -4,7 +4,6 @@
 
 import datetime
 from pathlib import Path
-import random
 
 
 import PySimpleGUI as sg
@@ -40,12 +39,8 @@ def main():
     # --------------------------------------------------------------------------
     # --------------------------------------------------------------------------
 
-    themes = sg.theme_list()
     selected_theme = "DefaultNoMoreNagging"
     sg.theme(selected_theme)
-    # current_them = sg.LOOK_AND_FEEL_TABLE[selected_theme]
-    # sg.ChangeLookAndFeel(selected_theme)
-    # sg.theme(random.choice(sg.theme_list()))
 
     # --------------------------------------------------------------------------
     # --------------------------------------------------------------------------
@@ -102,18 +97,9 @@ def main():
         ],
         [
             sg.Text("Periodo:", TEXT_SIZE),
-            # sg.Input(
-            #     key="PERIOD",
-            #     do_not_clear=True,
-            #     size=(30, 30),
-            #     font=FONT,
-            #     default_text="1er Trimestre",
-            # ),
             sg.Combo(
                 values=PERIODOS,
                 key="PERIOD",
-                # bind_return_key=True,
-                # enable_events=True,
                 size=(30, 30),
                 font=FONT,
                 auto_size_text=True,
@@ -147,8 +133,6 @@ def main():
             sg.Text("Prueba:", TEXT_SIZE),
             sg.Combo(
                 values=TYPES_OF_PRUEBAS,
-                # bind_return_key=True,
-                # enable_events=True,
                 key="PRUEBA",
                 size=(30, 30),
                 font=FONT,
@@ -234,7 +218,6 @@ def main():
                 auto_size_button=True,
                 border_width=0,
             ),
-            # sg.Exit(),
             sg.Push(),
         ],
         [
@@ -242,18 +225,6 @@ def main():
             sg.Text("Made by Gero Zayas", background_color="Black", text_color="Gold"),
             sg.Push(),
         ],
-        # [
-        #     sg.Push(),
-        #     sg.Text("Choose your favorite theme:", TEXT_SIZE),
-        #     sg.Combo(
-        #         values=themes,
-        #         default_value=selected_theme,
-        #         size=(15, 1),
-        #         enable_events=True,
-        #         key="select_theme",
-        #     ),
-        #     sg.Push(),
-        # ],
     ]
 
     window = sg.Window(
@@ -269,7 +240,6 @@ def main():
         if event == sg.WIN_CLOSED or event == "Exit":
             break
 
-        # FIXME: Change the theme when i choose something from combo list
         if event == "select_theme":
             selected_theme = values["select_theme"]
             print(selected_theme)
