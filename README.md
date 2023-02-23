@@ -5,7 +5,7 @@
 The purpose of this program is to accelerate and simplify the creation of student reports in this language academy. It aims at producing the necessary word documents in 1/15 of the time that it would take to do it manually.
 
 ### Usage
-1. Introduce the student, teacher and quarter info.
+1. Introduce the student, teacher and academic time info.
 2. Introduce the general marks of the quarter plus the latest exam ones.
 3. Write the corresponding comments.
 4. Click on Generate Report.
