@@ -16,7 +16,6 @@ import sys
 
 
 def main():
-
     # To understand this solution applying this function of resource_path go to->
     # https://stackoverflow.com/questions/31836104/pyinstaller-and-onefile-how-to-include-an-image-in-the-exe-file
     # specifically to "A clear and unambiguous guide"
@@ -64,7 +63,7 @@ def main():
     PERIODOS = ["1er Trimestre", "2ndo Trimestre", "3er Trimestre"]
 
     # Fonts
-    FONT = "Consolas 12"
+    FONT = "Agave 11"
     TEXT_SIZE = (22, 1)
     TOOLTIP_EXAM_MARKS = (
         "'--': no se evaluó en la prueba | 'NA': no asistió a la prueba"
@@ -241,7 +240,6 @@ def main():
             sg.theme(selected_theme)
 
         if event == "GENERATE":
-
             try:
                 result_total = (
                     float(values["LISTENING"])
